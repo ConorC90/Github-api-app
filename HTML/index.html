@@ -6,34 +6,36 @@
     <link href="../CSS/style.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="flexCenterColumn">
-      <div class="floatingDiv">
-        <div id="searchBoxDiv" class="flexBetween margins">
-          <div>
+    <div id="containerDiv" class="flexCenterColumn flex">
+      <div class="floatingDiv margins flexCol flex">
+        <div id="searchBoxDiv" class="flexBetween flex margins width100">
+          <div class="width70">
             <input
               id="inputBox"
+              class="width100"
               type="text"
               name="searchBox"
-              placeholder="Search by Git user name.."
+              placeholder="Search by Github user name.."
               onkeypress="callFetchOnEnter(event)"
               autofocus
             />
           </div>
-          <div>
-            <button class="button" type="button" onclick="callFetch()">
+          <div class="width30">
+            <button class="button width100" type="button" onclick="callFetch()">
               Search
             </button>
           </div>
         </div>
-        <div id="errorBox">
+        <div id="errorBox" class="animate-bottom">
           <p>Dose not exist</p>
         </div>
         <div id="loader"></div>
-        <div id="hideDiv">
-          <div class="flex mainBodyWidth">
-            <img id="avatarField" class="avatar" />
-
-            <div class="flexCol">
+        <div id="hideDiv" class="animate-bottom width100">
+          <div class="flex mainBodyWidth profileInfo">
+            <div>
+              <img id="avatarField" class="avatar" />
+            </div>
+            <div class="flexCol flex">
               <p id="userNameField" class="italicText"></p>
               <h2 id="fullNameField" class="boldText"></h2>
               <p id="bioName"></p>
@@ -42,12 +44,12 @@
           </div>
           <div id="repoDiv" class="mainBodyWidth">
             <div>
-              <div class="flexBaseline">
+              <div class="flexBaseline flex">
                 <h3 id="numberOfRepos">Repositories</h3>
                 <p id="numberOfRepos"></p>
               </div>
               <hr />
-              <div class="flexBetween overFlow">
+              <div class="flexBetween flex overFlow">
                 <div id="reposName"></div>
               </div>
             </div>

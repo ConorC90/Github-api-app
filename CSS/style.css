@@ -2,6 +2,7 @@
 
 body {
   font-family: sans-serif;
+  margin: 0px;
 }
 
 p {
@@ -28,6 +29,8 @@ a {
   color: black;
   outline: none;
   text-decoration: none;
+  word-wrap: break-word;
+  width: 200px;
 }
 
 /* media styling */
@@ -42,20 +45,17 @@ a {
   align-items: center;
   height: 25px;
   display: flex;
-  padding: 3px;
   justify-content: flex-end;
 }
 
 .forkPic {
   height: 20px;
-  width: 20px;
   padding-left: 5px;
   padding-right: 5px;
 }
 
 .starPic {
   height: 20px;
-  width: 20px;
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -63,9 +63,8 @@ a {
 /* div styleing */
 
 #inputBox[type="text"] {
-  width: 300px;
+  width: 97%;
   height: 45px;
-  margin-bottom: 10px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -80,7 +79,6 @@ a {
 
 .button {
   height: 45px;
-  width: 100px;
   background-color: #e7e7e7;
   color: black;
   text-align: center;
@@ -88,8 +86,7 @@ a {
   display: inline-block;
   font-size: 16px;
   border-radius: 10%;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  /* margin-left: 5px; */
 }
 
 .repoName {
@@ -97,85 +94,85 @@ a {
   height: 25px;
   display: flex;
   padding: 3px;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 #errorBox {
-  height: 100px;
-  width: 405px;
-  border: 2px;
+  height: 80px;
+  width: 100%;
   color: #af4545;
-  font-weight: 550;
+  font-weight: 500;
   background-color: #f9dede;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
-  padding: 10px;
   word-wrap: break-word;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0px 0px 10px;
+  justify-content: end;
+  align-items: center;
+  padding-left: 10px;
+  margin-top: 20px;
 }
 
-.margins {
-  margin: 30px;
+.repo {
+  max-width: 420px;
+  min-width: 400px;
+  border-bottom: #efefef;
+  border-bottom-style: solid;
+  padding: 10px;
 }
 
 .overFlow {
   overflow-y: scroll;
   max-height: 350px;
-  margin-right: -10px;
 }
 
 .floatingDiv {
   width: 450px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  width: 450px;
-  box-shadow: 0px 0px 25px 20px #ccc;
+  /* height: 80%; */
+  box-shadow: 15px 15px 20px 10px #ccc;
   border-radius: 20px;
   margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   margin-top: 50px;
   background-color: white;
+  padding: 25px;
 }
 
-/* div positioning */
+/* content display */
+
+.margins {
+  margin: 30px 0px 30px 0px;
+}
+
+.width100 {
+  width: 100%;
+}
+.width70 {
+  width: 70%;
+}
+.width30 {
+  width: 30%;
+}
+
+/* div alinement */
 
 .flex {
   display: flex;
 }
 
 .flexBaseline {
-  display: flex;
   align-items: baseline;
 }
 
 .flexCol {
-  display: flex;
   flex-direction: column;
 }
 
 .flexBetween {
-  display: flex;
   justify-content: space-between;
-}
-.repoFlexBetween {
-  display: flex;
-  justify-content: space-between;
-  max-width: 420px;
-  min-width: 400px;
-  border-bottom: #efefef;
-  border-bottom-style: solid;
-  padding: 5px;
 }
 
 .flexCenterColumn {
-  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #efefef;
@@ -183,7 +180,7 @@ a {
 }
 
 .mainBodyWidth {
-  width: 405px;
+  width: 100%;
   padding-bottom: 5px;
 }
 
@@ -193,8 +190,6 @@ a {
   bottom: 40%;
   left: 50%;
   z-index: 1;
-  width: 150px;
-  height: 150px;
   margin: -75px 0 0 -75px;
   border: 16px solid #a3a3a3;
   border-radius: 50%;
@@ -257,8 +252,87 @@ a {
 
 #hideDiv {
   display: none;
+  background-color: white;
 }
 
 #loaderDiv {
   display: none;
+}
+
+/* styling for phones and tablets */
+
+@media only screen and (min-device-width: 319px) and (max-device-width: 800px) {
+  .floatingDiv {
+    width: 85%;
+  }
+  .flexBetween {
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #errorBox {
+    height: 180px;
+    font-size: 50px;
+  }
+
+  #hideDiv {
+    height: 90%;
+    font-size: 50px;
+  }
+  #reposName {
+    height: 58vh;
+    width: 85%;
+  }
+  .repoName {
+    height: 100%;
+    padding: 15px;
+  }
+  .repo {
+    font-size: 50px;
+    max-width: none;
+    min-width: none;
+  }
+  a {
+    width: 100%;
+  }
+  .overFlow {
+    max-height: 100%;
+  }
+  .flexBaseline {
+    justify-content: center;
+  }
+  .mainBodyWidth {
+    justify-content: center;
+  }
+  #inputBox[type="text"] {
+    width: 97%;
+    height: 90px;
+    font-size: 50px;
+    margin-bottom: 20px;
+    background-image: none;
+    /* margin: 10px 10px 10px 35px; */
+  }
+  .width70 {
+    width: 100%;
+  }
+  .profileInfo {
+    font-size: 50px;
+  }
+  .forkPic {
+    height: 40px;
+  }
+  .starPic {
+    height: 40px;
+  }
+  .avatar {
+    height: 230px;
+  }
+
+  .button {
+    height: 80px;
+    font-size: 25px;
+    margin: 10px;
+  }
 }

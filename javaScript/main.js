@@ -6,7 +6,6 @@ var reposData;
 //Fetch data from Git API
 function callFetch() {
   var userValue = document.getElementById("inputBox").value;
-  console.log(userValue.length);
 
   if (userValue.length == 0) {
     document.getElementById("errorBox").style.display = "flex";
@@ -29,16 +28,8 @@ function callFetch() {
             "The user name " + userValue + " dose not exist";
         } else {
           document.getElementById("errorBox").style.display = "none";
-          console.log(userValue);
-          console.log(data);
-          console.log(data.name);
-          console.log(data.login);
-          console.log(data.bio);
-          console.log(data.avatar_url);
           userInfo();
           repositoriesInfo();
-
-          // showDiv();
         }
       })
       .catch(error => console.error(error));
@@ -132,25 +123,21 @@ function repos() {
       containerDiv.appendChild(nameDiv);
       containerDiv.appendChild(logoDiv);
       document.getElementById("reposName").appendChild(containerDiv);
-      containerDiv.setAttribute("class", "repoFlexBetween");
+      containerDiv.setAttribute("class", "repo flex flexBetween");
 
       endLoader();
     }
   }
 }
 
-//showDiv() displays the hidden div when a fetch call is successful
-function showDiv() {
-  document.getElementById("hideDiv").style.display = "block";
-}
-
 function startLoader() {
-  document.getElementById("loader").style.display = "block";
+  document.getElementById("errorBox").style.display = "none";
   document.getElementById("hideDiv").style.display = "none";
+  document.getElementById("loader").style.display = "block";
 }
 
 function endLoader() {
-  document.getElementById("searchBoxDiv").style.marginBottom = "5px";
-  document.getElementById("loader").style.display = "none";
+  document.getElementById("searchBoxDiv").style.marginBottom = "15px";
   document.getElementById("hideDiv").style.display = "block";
+  document.getElementById("loader").style.display = "none";
 }
