@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Marfeel Git seacher</title>
+    <link href="../CSS/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="flexCenterColumn">
+      <div class="floatingDiv">
+        <div id="searchBoxDiv" class="flexBetween margins">
+          <div>
+            <input
+              id="inputBox"
+              type="text"
+              name="searchBox"
+              placeholder="Search by Git user name.."
+              onkeypress="callFetchOnEnter(event)"
+              autofocus
+            />
+          </div>
+          <div>
+            <button class="button" type="button" onclick="callFetch()">
+              Search
+            </button>
+          </div>
+        </div>
+        <div id="errorBox">
+          <p>Dose not exist</p>
+        </div>
+        <div id="loader"></div>
+        <div id="hideDiv">
+          <div class="flex mainBodyWidth">
+            <img id="avatarField" class="avatar" />
+
+            <div class="flexCol">
+              <p id="userNameField" class="italicText"></p>
+              <h2 id="fullNameField" class="boldText"></h2>
+              <p id="bioName"></p>
+              <p id="bioField"></p>
+            </div>
+          </div>
+          <div id="repoDiv" class="mainBodyWidth">
+            <div>
+              <div class="flexBaseline">
+                <h3 id="numberOfRepos">Repositories</h3>
+                <p id="numberOfRepos"></p>
+              </div>
+              <hr />
+              <div class="flexBetween overFlow">
+                <div id="reposName"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- connect with JS file -->
+    <script src="../javaScript/main.js"></script>
+  </body>
+</html>
